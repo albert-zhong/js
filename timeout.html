@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="text" id="searchBar">
+    <p id="results" style="color: red;">No results</p>
+
+    <script>
+        const searchBar = document.getElementById('searchBar')
+        var timeOut = null
+
+        searchBar.onkeyup = () => {
+            removeResults()
+            clearTimeout(timeOut)
+            timeOut = setTimeout(showResults, 2000)
+        }
+
+        function showResults() {
+            const results = document.getElementById('results')
+            results.style.color = 'green'
+            results.innerHTML = 'RESULTS!'
+        }
+
+        function removeResults() {
+            const results = document.getElementById('results')
+            results.style.color = 'red'
+            results.innerHTML = 'No results'
+        }
+    </script>
+  </body>
+</html>
